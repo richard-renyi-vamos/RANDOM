@@ -1,0 +1,27 @@
+import random
+import requests
+from PIL import Image
+from io import BytesIO
+
+# List of image URLs
+image_urls = [
+    "https://example.com/image1.jpg",
+    "https://example.com/image2.jpg",
+    "https://example.com/image3.jpg",
+    # Add more image URLs here
+]
+
+# Select a random image URL
+random_image_url = random.choice(image_urls)
+
+# Retrieve the image
+response = requests.get(random_image_url)
+image_data = response.content
+
+# Create an Image object
+image = Image.open(BytesIO(image_data))
+
+# Display the image
+image.show()
+
+# CREATED WITH THE HELP OF OPEN-AI CHAT GPT: https://chat.openai.com/chat
