@@ -1,0 +1,26 @@
+from PIL import Image, ImageDraw
+import random
+
+def generate_random_image(width, height):
+    image = Image.new("RGB", (width, height))
+    draw = ImageDraw.Draw(image)
+
+    for y in range(height):
+        for x in range(width):
+            r = random.randint(0, 255)
+            g = random.randint(0, 255)
+            b = random.randint(0, 255)
+            draw.point((x, y), fill=(r, g, b))
+
+    return image
+
+if __name__ == "__main__":
+    image_width = 640
+    image_height = 480
+    num_images = 5
+
+    for i in range(num_images):
+        random_image = generate_random_image(image_width, image_height)
+        random_image.show()
+
+# CREATED WITH THE HELP OF OPEN-AI CHAT GPT: https://chat.openai.com/chat
